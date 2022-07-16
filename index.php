@@ -47,7 +47,7 @@ if($_POST) {
                 <br/><br/><br/>
                 <div class="card">
                     <div class="card-header">
-                        Login
+                        Login 
                     </div>
                     <div class="card-body">
                         
@@ -57,6 +57,7 @@ if($_POST) {
                             </div>
                         <?php } ?>
                         
+                        <a href="recupera.php">Recupera tu contraseña</a>
                         <form action="" method="post">
                         
                             <div class="form-group">

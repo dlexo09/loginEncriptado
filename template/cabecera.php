@@ -18,7 +18,7 @@ if(!isset($_SESSION['usuario'])) {
   </head>
   <body>
 
-    <?php $url = "http://".$_SERVER['HTTP_HOST']."/actividad" ?>
+    <?php $url = "http://".$_SERVER['HTTP_HOST']."/login" ?>
 
     <nav class="navbar navbar-expand navbar-light bg-light">
         <div class="nav navbar-nav">
