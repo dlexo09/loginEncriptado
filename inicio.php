@@ -29,11 +29,11 @@ if(!isset($_SESSION['usuario'])) {
                 
                 <div class="jumbotron">
                     <h1 class="display-3">Bienvenido <?php echo $nombreUsuario; ?> </h1>
-                    <p class="lead">Vamos a hacer las requesiciones</p>
+                    <p class="lead">Vamos a la lista de usuarios</p>
                     <hr class="my-2">
                     <p>Más información</p>
                     <p class="lead">
-                        <a class="btn btn-primary btn-lg" href="seccion/requisicion.php" role="button">Requisicion</a>
+                        <a class="btn btn-primary btn-lg" href="seccion/usuarios.php" role="button">Usuarios</a>
                     </p>
                 </div>
 

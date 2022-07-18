@@ -23,7 +23,7 @@ if(!isset($_SESSION['usuario'])) {
     <nav class="navbar navbar-expand navbar-light bg-light">
         <div class="nav navbar-nav">
             <a class="nav-item nav-link" href="<?php echo $url; ?>/inicio.php">Inicio</a>
-            <a class="nav-item nav-link" href="<?php echo $url; ?>/seccion/requisicion.php">Requisiciones</a>
+            <a class="nav-item nav-link" href="<?php echo $url; ?>/seccion/usuarios.php">Usuarios</a>
             <a class="nav-item nav-link" href="<?php echo $url; ?>/seccion/cerrar.php">Cerrar</a>
         </div>
     </nav>

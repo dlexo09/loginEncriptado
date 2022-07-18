@@ -20,7 +20,7 @@ if($recuperarSQL['clave_nueva'] == "") {
 
 $clave = password_hash($recuperarSQL['clave_nueva'], PASSWORD_DEFAULT);
 
-$sentenciaSQL = $conexion->prepare("UPDATE login SET contrasenia = :contrasenia WHERE correo = :correo LIMIT 1");
+$sentenciaSQL = $conexion->prepare("UPDATE usuarios SET contrasenia = :contrasenia WHERE correo = :correo LIMIT 1");
 $sentenciaSQL->bindParam(':contrasenia', $clave);
 $sentenciaSQL->bindParam(':correo', $correo);
 $sentenciaSQL->execute();

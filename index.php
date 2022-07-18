@@ -6,7 +6,7 @@ include("config/bd.php");
 $correo = (isset($_POST['correo'])) ? $_POST['correo'] : "";
 $contrasenia = (isset($_POST['contrasenia'])) ? $_POST['contrasenia'] : "";
 
-$sentenciaSQL = $conexion->prepare("SELECT * FROM login WHERE correo = :correo");
+$sentenciaSQL = $conexion->prepare("SELECT * FROM usuarios WHERE correo = :correo");
 $sentenciaSQL->bindParam(':correo', $correo);
 $sentenciaSQL->execute();
 $loginSQL = $sentenciaSQL->fetch(PDO::FETCH_LAZY);
@@ -14,7 +14,7 @@ $loginSQL = $sentenciaSQL->fetch(PDO::FETCH_LAZY);
 if($_POST) {
     if(($correo == $loginSQL['correo']) && (password_verify($contrasenia, $loginSQL['contrasenia']))) {
         $_SESSION['usuario'] = "ok";
-        $_SESSION['nombreUsuario'] = "Salvador";
+        $_SESSION['nombreUsuario'] = $loginSQL['nombre'];
         header("Location: inicio.php");
     } else {
         $mensaje = "Correo o contraseña son incorrectos";

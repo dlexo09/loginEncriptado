@@ -6,7 +6,7 @@ include("../config/bd.php");
 
 $correo = (isset($_POST['correo'])) ? $_POST['correo'] : "";
 
-$sentenciaSQL = $conexion->prepare("SELECT * FROM login WHERE correo = :correo LIMIT 1");
+$sentenciaSQL = $conexion->prepare("SELECT * FROM usuarios WHERE correo = :correo LIMIT 1");
 $sentenciaSQL->bindParam(':correo', $correo);
 $sentenciaSQL->execute();
 $loginSQL = $sentenciaSQL->fetch(PDO::FETCH_LAZY);
