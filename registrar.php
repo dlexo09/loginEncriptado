@@ -6,19 +6,34 @@ $nombre = (isset($_POST['nombre'])) ? $_POST['nombre'] : "";
 $correo = (isset($_POST['correo'])) ? $_POST['correo'] : "";
 $contrasenia = (isset($_POST['contrasenia'])) ? $_POST['contrasenia'] : "";
 $perfil = (isset($_POST['perfil'])) ? $_POST['perfil'] : "";
+$foto = (isset($_FILES['foto']['name'])) ? $_FILES['foto']['name'] : "";
 
 $numPerfil = intval($perfil);
 if(isset($_POST['registrar'])) {
     $mensaje = "";
     $encriptada = password_hash($contrasenia, PASSWORD_DEFAULT);
-    $sentenciaSQL = $conexion->prepare("INSERT INTO usuarios (nombre, correo, contrasenia, perfil) VALUES (:nombre, :correo, :contrasenia, :perfil)");
+    $sentenciaSQL = $conexion->prepare("INSERT INTO usuarios (nombre, correo, contrasenia, perfil, imagen) VALUES (:nombre, :correo, :contrasenia, :perfil, :imagen)");
     $sentenciaSQL->bindParam(':nombre', $nombre);
     $sentenciaSQL->bindParam(':correo', $correo);
     $sentenciaSQL->bindParam(':contrasenia', $encriptada);
     $sentenciaSQL->bindParam(':perfil', $numPerfil);
+
+    $fecha = new DateTime();
+    $nombreArchivo = ($foto != "") ? $fecha->getTimestamp()."_".$_FILES['foto']['name'] : "imagen.jpg";
+
+    $tmpImagen = $_FILES['foto']['tmp_name'];
+
+    if($tmpImagen != "") {
+        move_uploaded_file($tmpImagen, "img/".$nombreArchivo);
+    }
+
+    $sentenciaSQL->bindParam(':imagen', $nombreArchivo);
+
     if($sentenciaSQL->execute()) {
+        $clase = "success";
         $mensaje = "Registro exitoso";
     } else {
+        $clase = "danger";
         $mensaje = "Falla en el registro";
     }
 }
@@ -58,15 +73,15 @@ $perfilesSQL = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
                     <div class="card-body">
 
                     <?php if(isset($mensaje)) { ?>
-                        <div class="alert alert-info" role="alert">
+                        <div class="alert alert-<?php echo $clase; ?>" role="alert">
                             <?php echo $mensaje; ?>
                         </div>
                     <?php } ?>
                         
-                        <form action="" method="post">
+                        <form action="" method="post" enctype="multipart/form-data">
 
                             <div class="form-group">
-                              <label for="nombre">Nombre</label>
+                              <label for="nombre">Nombre completo</label>
                               <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ingresa tu nombre completo">
                             </div>
                         
@@ -89,6 +104,11 @@ $perfilesSQL = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
                                 <?php } ?>
                                 </select>
                               </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="foto">Foto</label>
+                              <input type="file" class="form-control" name="foto" id="foto" placeholder="Ingresa tu foto">
                             </div>
 
                             <input type="submit" name="registrar" id="registrar" class="btn btn-primary" value="Registrar"/>
