@@ -27,7 +27,7 @@ include("../template/cabecera.php");
             <tbody>
             <?php foreach($usuariosSQL as $usuarioSQL) { ?>
                 <tr>
-                    <td><?php echo $usuarioSQL['imagen']; ?></td>
+                    <td><img src="../img/<?php echo $usuarioSQL['imagen']; ?>" height="100" width="100" /></td>
                     <td><?php echo $usuarioSQL['nombre']; ?></td>
                     <td><?php echo $usuarioSQL['correo']; ?></td>
                     <td><?php echo $usuarioSQL['perfil']; ?></td>

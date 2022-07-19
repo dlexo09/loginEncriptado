@@ -40,7 +40,7 @@ if(isset($_POST['modificar'])) {
         $nombreArchivo = ($foto != "") ? $fecha->getTimestamp()."_".$_FILES['foto']['name'] : "imagen.jpg";
         $tmpImagen = $_FILES['foto']['tmp_name'];
 
-        move_uploaded_file($tmpImagen, "img/".$nombreArchivo);
+        move_uploaded_file($tmpImagen, "../img/".$nombreArchivo);
 
         $sentenciaSQL = $conexion->prepare("SELECT * FROM usuarios WHERE id = :id");
         $sentenciaSQL->bindParam(':id', $id);
@@ -90,6 +90,12 @@ include("../template/cabecera.php");
                 <?php } ?>
 
                 <form action="" method="post" enctype="multipart/form-data">
+                    
+                    <div class="form-group">
+                        <label for="foto">Foto</label><br/>
+                        <input type="file" class="form-control" name="foto" id="foto" placeholder="Ingresa tu foto">
+                        <img src="../img/<?php echo $usuarioSQL['imagen']; ?>" height="200" width="200" />
+                    </div>
 
                     <div class="form-group">
                         <label for="nombre">Nombre completo</label>
@@ -110,12 +116,6 @@ include("../template/cabecera.php");
                         <?php } ?>
                         </select>
                         </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="foto">Foto</label><br/>
-                        <?php echo $usuarioSQL['imagen']; ?>
-                        <input type="file" class="form-control" name="foto" id="foto" placeholder="Ingresa tu foto">
                     </div>
 
                     <input type="submit" name="modificar" id="modificar" class="btn btn-primary" value="Modificar"/>
