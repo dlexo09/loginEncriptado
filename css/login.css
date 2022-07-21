@@ -1,0 +1,12 @@
+body {
+    height: 500px;
+    background-image: url('http://localhost/login/img/fondo.jpeg');
+    background-size: cover;
+    background-repeat:no-repeat;
+    background-position: center center;
+}
+
+img {
+    border-radius: 50%;
+    text-align: center;
+}

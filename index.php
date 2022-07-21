@@ -33,19 +33,21 @@ if($_POST) {
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/login.css" />
   </head>
   <body>
 
     <div class="container">
         <div class="row">
 
+            
             <div class="col-md-4">
                 
             </div>
             
             <div class="col-md-4">
-                <br/><br/><br/>
-                <div class="card">
+                <br/><br/><br/><br/>
+                <div style="border-radius: 10px; background-color: rgb(195, 201, 201)" class="card">
                     <div class="card-header">
                         Login 
                     </div>
@@ -57,22 +59,27 @@ if($_POST) {
                             </div>
                         <?php } ?>
                         
-                        <a href="recupera.php">Recupera tu contraseña</a>
                         <form action="" method="post">
-                        
+                            
+                            <div style="text-align: center;" class="form-group">
+                                <img src="img/desel.png" width="100" />
+                            </div>
+
                             <div class="form-group">
                               <label for="correo">Correo</label>
-                              <input type="email" class="form-control" name="correo" id="correo" placeholder="Ingresa tu correo">
+                              <input style="background-color: rgb(195, 201, 201); border-radius: 25px 25px 25px 25px;" type="email" class="form-control" name="correo" id="correo" placeholder="Ingresa tu correo">
                             </div>
                             
                             <div class="form-group">
                               <label for="contrasenia">Contrseña</label>
-                              <input type="password" class="form-control" name="contrasenia" id="contrasenia" placeholder="Ingresa tu contraseña">
+                              <input style="background-color: rgb(195, 201, 201); border-radius: 25px 25px 25px 25px;" type="password" class="form-control" name="contrasenia" id="contrasenia" placeholder="Ingresa tu contraseña">
                             </div>
 
-                            <input type="submit" name="entrar" id="entrar" class="btn btn-primary" value="Entrar"/>
+                            <a href="recupera.php">Recupera tu contraseña</a><br/>
+
+                            <input style="border-radius: 10px;" type="submit" name="entrar" id="entrar" class="btn btn-primary" value="Entrar"/>
                             &nbsp;
-                            <a href="registrar.php" class="btn btn-primary">Registrar</a>
+                            <a style="border-radius: 10px;" href="registrar.php" class="btn btn-primary">Registrar</a>
                         
                         </form>
                     
@@ -81,5 +88,6 @@ if($_POST) {
             </div>
         </div> 
     </div>
+
   </body>
 </html>
