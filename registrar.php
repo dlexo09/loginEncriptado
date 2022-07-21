@@ -10,7 +10,6 @@ $foto = (isset($_FILES['foto']['name'])) ? $_FILES['foto']['name'] : "";
 
 $numPerfil = intval($perfil);
 if(isset($_POST['registrar'])) {
-    $mensaje = "";
     $encriptada = password_hash($contrasenia, PASSWORD_DEFAULT);
     $sentenciaSQL = $conexion->prepare("INSERT INTO usuarios (nombre, correo, contrasenia, perfil, imagen) VALUES (:nombre, :correo, :contrasenia, :perfil, :imagen)");
     $sentenciaSQL->bindParam(':nombre', $nombre);
