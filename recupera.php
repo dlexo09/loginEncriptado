@@ -26,6 +26,7 @@ if(isset($_SESSION['error'])) {
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/recupera.css" />
   </head>
   <body>
 
@@ -37,8 +38,8 @@ if(isset($_SESSION['error'])) {
             </div>
             
             <div class="col-md-4">
-                <br/><br/><br/>
-                <div class="card">
+                <br/><br/><br/><br/><br/><br/>
+                <div style="border-radius: 10px; background-color: rgb(195, 201, 201)" class="card">
                     <div class="card-header">
                         Recupera tu contraseña
                     </div>
@@ -53,10 +54,10 @@ if(isset($_SESSION['error'])) {
                         
                             <div class="form-group">
                               <label for="correo">Correo</label>
-                              <input type="email" class="form-control" name="correo" id="correo" placeholder="Ingresa tu correo">
+                              <input style="background-color: rgb(195, 201, 201); border-radius: 25px 25px 25px 25px;" type="email" class="form-control" name="correo" id="correo" placeholder="Ingresa tu correo">
                             </div>
 
-                            <input type="submit" name="recupera" id="recupera" class="btn btn-primary" value="Recupera"/>
+                            <input style="border-radius: 10px;" type="submit" name="recupera" id="recupera" class="btn btn-primary" value="Recupera"/>
                         
                         </form>
                     

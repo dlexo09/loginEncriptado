@@ -1,13 +1,7 @@
-img {
-
-    border-radius: 50%;
-}
-
 body {
     height: 505px;
-    background-image: url('http://localhost/login/img/sistema.jpeg');
+    background-image: url('http://localhost/login/img/inicio.jpeg');
     background-size: cover;
     background-repeat:no-repeat;
     background-position: center center;
 }
-

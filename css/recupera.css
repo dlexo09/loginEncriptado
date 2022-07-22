@@ -1,12 +1,7 @@
 body {
     height: 500px;
-    background-image: url('http://localhost/login/img/login.jpeg');
+    background-image: url('http://localhost/login/img/recupera.jpeg');
     background-size: cover;
     background-repeat:no-repeat;
     background-position: center center;
-}
-
-img {
-    border-radius: 50%;
-    text-align: center;
 }
